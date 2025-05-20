@@ -5,17 +5,7 @@ struct UserDetailView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: user.picture.large)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 200, height: 200)
-                    .clipShape(Circle())
-            } placeholder: {
-                ProgressView()
-                    .frame(width: 200, height: 200)
-                    .clipShape(Circle())
-            }
+            AvatarView(url: user.picture.large, size: CGSize(width: 200, height: 200))
             
             VStack(alignment: .leading) {
                 Text("\(user.name.first) \(user.name.last)")
